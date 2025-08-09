@@ -1,0 +1,93 @@
+EDATask:
+  description: >
+    Conduct a complete exploratory data analysis (EDA) on the provided dataset. 
+    Use the tools in the following strict sequence to ensure consistent insights:
+
+    1. **Use `load_data_tool`** to load the dataset from the provided file path.
+    2. **Use `missing_value_analysis_tool`** to inspect and summarize missing data patterns.
+    3. **Use `univariate_analysis_tool`** to analyze distributions of each numeric and categorical column.
+    4. **Use `correlation_analysis_tool`** to find relationships between numeric variables and generate correlation heatmap.
+    5. **Use `outlier_detection_tool`** to detect and summarize outliers using statistical methods.
+    6. **Use `target_relationship_tool`** to analyze relationships between predictors and the target variable (if specified).
+    7. **Use `generate_visualizations_tool`** to create comprehensive supporting charts and plots.
+    8. **Use `export_report_tool`** to compile all findings into a structured report format.
+
+    Dataset file path: {dataset_path}
+    Target column (if specified): {target_column}
+    
+    Strict adherence to the tool sequence is required. Summarize each tool's output and provide insights.
+    Focus on actionable business insights and data quality issues.
+
+  expected_output: >
+    A comprehensive EDA summary containing all findings including missing values, univariate analysis,
+    correlation analysis, outlier detection, target relationships, and visualizations. 
+    The analysis should be ready for display in the Streamlit frontend and include:
+    
+    1. Dataset overview (shape, columns, data types)
+    2. Missing value analysis with recommendations
+    3. Univariate analysis findings for all variables
+    4. Correlation analysis with key relationships identified
+    5. Outlier detection results and impact assessment
+    6. Target variable relationships (if applicable)
+    7. Key visualizations and their interpretations
+    8. Overall data quality assessment
+    9. Actionable recommendations for data preprocessing
+    10. Business insights derived from the analysis
+    
+    All information should be stored in analysis_results for frontend display and PDF generation.
+    The output should be well-structured with clear sections and ready for Streamlit interface.
+
+StreamlitFormatTask:
+  description: >
+    Format the EDA analysis results from the previous task into a clean, user-friendly structure 
+    suitable for Streamlit display and PDF generation.
+    
+    EDA Results: {eda_results}
+    
+    Transform the technical analysis into:
+    1. Executive Summary with key findings
+    2. Data Overview section
+    3. Data Quality Assessment
+    4. Statistical Analysis findings
+    5. Visualization insights
+    6. Recommendations section
+    
+    Ensure the output is:
+    - Well-organized with clear headings
+    - Easy to read and understand
+    - Highlights critical insights
+    - Includes actionable recommendations
+    - Ready for both web display and PDF export
+
+  expected_output: >
+    A formatted analysis report with the following structure:
+    
+    ## Executive Summary
+    - Key findings and insights
+    - Data quality overview
+    - Critical recommendations
+    
+    ## Dataset Overview
+    - Basic statistics and information
+    - Column descriptions and types
+    
+    ## Data Quality Analysis
+    - Missing value patterns
+    - Outlier analysis results
+    - Data integrity issues
+    
+    ## Statistical Analysis
+    - Univariate analysis insights
+    - Correlation findings
+    - Target variable relationships
+    
+    ## Visualizations Summary
+    - Key charts and their interpretations
+    - Visual insights and patterns
+    
+    ## Recommendations
+    - Data preprocessing steps
+    - Business insights
+    - Next steps for analysis
+    
+    The output should be clean, professional, and ready for display in Streamlit with proper markdown formatting.
